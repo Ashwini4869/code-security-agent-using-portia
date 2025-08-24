@@ -14,9 +14,14 @@ def run_plan(github_repo, recipient_email):
     try:
         # Call the imported function from main.py
         run_code_security_agent(github_repo, recipient_email)
-        return "Security scan completed successfully!", "", 0
+        return (
+            f"Security scan completed successfully! You can see the issue created in your GitHub repository. \n\n"
+            f"You can also check the email sent to {recipient_email} for the issue details.",
+            "",
+            0,
+        )
     except Exception as e:
-        return "", str(e), 1
+        return f"Failed to run security scan: {e}", "", 1
 
 
 def main():
