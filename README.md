@@ -98,7 +98,7 @@ The application requires two API keys:
 
 1. **Launch the Streamlit app**
    ```bash
-   streamlit run streamlit_app.py
+   uv run streamlit run streamlit_app.py
    ```
 
 2. **Configure API Keys**
@@ -125,23 +125,18 @@ run_code_security_agent(
 
 ### Workflow Execution
 
-1. **Repository Analysis**: Fetches all files from the specified GitHub repository
-2. **File Processing**: Downloads and processes code files for analysis
-3. **Security Scanning**: Runs Semgrep scan to detect vulnerabilities
-4. **Issue Creation**: Automatically creates GitHub issues for found vulnerabilities
-5. **Notification**: Sends email alerts to specified recipients
+![workflow](assets/workflow.png)
+
+1. **Repository Analysis**: Fetches all files from the specified GitHub repository (Uses GitHub MCP tool)
+2. **File Processing**: Downloads and processes code files for analysis (Uses custom download_and_read_files)
+3. **Security Scanning**: Runs Semgrep scan to detect vulnerabilities (Uses semgrep MCP tool)
+4. **Issue Creation**: Automatically creates GitHub issues for found vulnerabilities (Uses GitHub MCP tool)
+5. **Notification**: Sends email alerts to specified recipients (Uses Gmail MCP tool)
 
 ### Output
 
 - **GitHub Issues**: Detailed vulnerability reports with file locations and descriptions
 - **Email Notifications**: Summary emails with issue links
-
-## Security Features
-
-- **Secure API Key Handling**: API keys are never stored or logged
-- **Temporary File Management**: Automatic cleanup of downloaded files
-- **Input Validation**: Comprehensive validation of GitHub URLs and email addresses
-- **Error Handling**: Graceful error handling with user-friendly messages
 
 ## Troubleshooting
 
@@ -159,10 +154,3 @@ run_code_security_agent(
 3. Make your changes
 4. Add tests if applicable
 5. Submit a pull request
-
-## Support
-
-For issues and questions:
-- Check the troubleshooting section
-- Review the code comments
-- Open a GitHub issue with detailed error information
