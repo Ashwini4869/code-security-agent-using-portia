@@ -106,10 +106,9 @@ plan = (
     # Step 7: Create email body
     .function_step(
         step_name="Create email body",
-        function=lambda x, y: x + "\n\n" + f"GitHub issue created: {y.issue_url}",
+        function=lambda x: f"A security vulnerability has been detected in your repository. Please review the following issue: \n\n{x.issue_url}",
         args={
-            "x": StepOutput("Get GitHub issues body"),
-            "y": StepOutput("Create GitHub issues"),
+            "x": StepOutput("Create GitHub issues"),
         },
     )
     # Step 8: Send email to user
