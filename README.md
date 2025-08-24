@@ -98,7 +98,7 @@ The application requires two API keys:
 
 1. **Launch the Streamlit app**
    ```bash
-   uv runstreamlit run streamlit_app.py
+   streamlit run streamlit_app.py
    ```
 
 2. **Configure API Keys**
@@ -124,13 +124,12 @@ run_code_security_agent(
 ```
 
 ### Workflow Execution
-![workflow](/assets/workflow.png)
 
-1. **Repository Analysis**: Fetches all files from the specified GitHub repository (Uses GitHub MCP tool)
-2. **File Processing**: Downloads and processes code files for analysis (Uses custom download_and_read_files tool)
-3. **Security Scanning**: Runs Semgrep scan to detect vulnerabilities (Uses semgrep MCP tool)
-4. **Issue Creation**: Automatically creates GitHub issues for found vulnerabilities (Uses GitHub MCP tool)
-5. **Notification**: Sends email alerts to specified recipients (Uses Gmail tool)
+1. **Repository Analysis**: Fetches all files from the specified GitHub repository
+2. **File Processing**: Downloads and processes code files for analysis
+3. **Security Scanning**: Runs Semgrep scan to detect vulnerabilities
+4. **Issue Creation**: Automatically creates GitHub issues for found vulnerabilities
+5. **Notification**: Sends email alerts to specified recipients
 
 ### Output
 
